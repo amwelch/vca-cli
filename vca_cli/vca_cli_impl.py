@@ -343,7 +343,7 @@ def status(ctx):
     headers = ['Property', 'Value']
     table = []
     for prop in properties:
-        if prop == 'password' and len(ctx.obj.get(prop, [])) > 0:
+        if prop == 'password' and len(ctx.obj.get(prop) or []) > 0:
             table.append([prop, '<encrypted>'])
             continue
         if isinstance(ctx.obj[prop], basestring):
